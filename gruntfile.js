@@ -128,7 +128,7 @@ module.exports = function(grunt) {
     grunt.registerTask('commit_all_heroku', ['shell:git_add', 'shell:git_commit_heroku']);
     grunt.registerTask('heroku_push', ['commit_all_heroku', 'checkout_master', 'shell:git_pull_origin', 'shell:git_push_origin', 'shell:git_push_heroku']);
     grunt.registerTask('run_tests', 'shell:jasmine_node');
-    grunt.registerTask('update_docs', ['jshint', 'yuidoc']);
+    grunt.registerTask('update_docs', ['jshint', 'yuidoc', 'aws:docs']);
 
 
 };
