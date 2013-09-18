@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/data/db.js - Eschool Portal</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="Eschool Portal"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/Admin.html">Admin</a></li>
+            
+                <li><a href="../classes/Authentication.html">Authentication</a></li>
+            
+                <li><a href="../classes/Db.html">Db</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/Authentication.html">Authentication</a></li>
+            
+                <li><a href="../modules/Library.html">Library</a></li>
+            
+                <li><a href="../modules/Router.html">Router</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: lib/data/db.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * @module Library
+ * */
+var mongoose = require(&#x27;mongoose&#x27;);
+//var pureautoinc = require(&quot;mongoose-pureautoinc&quot;);
+//var url = require(&#x27;url&#x27;);
+
+var HOST = &#x27;paulo.mongohq.com:10034&#x27;;
+//var HOST = &#x27;ds027728.mongolab.com:27728&#x27;;
+
+
+var CONN_DISCONNECTED = 0,
+    CONN_DISCONNECTING = 3,
+    CONN_CONNECTED = 1;
+
+//mongodb://&lt;user&gt;:&lt;password&gt;@paulo.mongohq.com:10034/eschool
+var MONGOHQ_URI = &#x27;mongodb://daseruser:kinky1289@paulo.mongohq.com:10034/eschool&#x27;;
+
+//var MONGOHQ_URI = &#x27;mongodb://cvbankuser:kinky1289@paulo.mongohq.com:10060/cvbank&#x27;;
+//The modifications I made to this file are expected, if the connection is closed, to connect to the database if everytime.
+//var MONGOHQ_URI = &#x27;mongodb://daser:admin@ds045157.mongolab.com:45157/cvbank&#x27;;
+var openConnection = function(callback) {
+
+    if (mongoose.connection === undefined ||
+                    mongoose.connection.readyState === CONN_DISCONNECTED ||
+                    mongoose.connection.readyState === CONN_DISCONNECTING) {
+        
+        mongoose.connection.on(&#x27;connected&#x27;, function() {
+
+            console.log(&#x27;Db connected&#x27;);
+            
+            if (callback) {
+                callback(true);
+            }
+        });
+
+        mongoose.connection.on(&#x27;error&#x27;, function(e) {
+            console.log(&#x27;Db connection error&#x27;);
+            if (callback) {
+                callback(e);
+            }else {
+                console.log(e);
+            }
+        });
+        
+        mongoose.connect(MONGOHQ_URI);
+    }else {
+        if (callback) {
+            callback(true);
+        }
+    }
+    
+};
+
+var closeConnection = function () {
+    if (mongoose.connection &amp;&amp; mongoose.connection.readyState === CONN_CONNECTED) {
+        mongoose.disconnect();
+        
+        mongoose.connection.removeAllListeners(&#x27;connected&#x27;);
+        
+        mongoose.connection.removeAllListeners(&#x27;error&#x27;);
+    }
+};
+
+/**
+ * core database class exposing Mongoose object after making connection
+ * @class Db
+ * */
+function Db(callback) {
+    this.close = function() {
+        closeConnection();
+    };
+    
+    this.open = function(callback) {
+        openConnection(callback);
+        return mongoose;
+    };
+    
+    //Let mongoose open and close the connection as we like.
+    mongoose.open  = function(callback) {
+        openConnection(callback);
+        return mongoose;
+    };
+    
+    mongoose.close = function() {
+      closeConnection();  
+    };
+    
+    openConnection(callback);
+    
+    return mongoose;
+}
+
+/***
+ * dragintcore-test-db | { _id: ObjectId(&quot;51c8a1d73111c7409510fc7f&quot;), user: &quot;draguser&quot;, pwd: &quot;10c4577030475b1ae417d28bdd22b7fa&quot;, readOnly: false }
+ * dragintweb-test-db | { _id: ObjectId(&quot;51c8a20d9232add66627da6c&quot;), user: &quot;draguser&quot;, pwd: &quot;10c4577030475b1ae417d28bdd22b7fa&quot;, readOnly: false }
+ * */
+//Just export the function and do not initialize so that 
+//I have to explicitly do that in order to be a able to plug a callback
+module.exports = Db;
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

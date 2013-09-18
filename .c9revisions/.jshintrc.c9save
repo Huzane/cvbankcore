@@ -1,0 +1,1 @@
+{"ts":1379340835269,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"{\n  \"curly\": true,\n  \"eqeqeq\": true,\n  \"immed\": true,\n  \"latedef\": true,\n  \"newcap\": true,\n  \"noarg\": true,\n  \"sub\": true,\n  \"undef\": true,\n  \"boss\": true,\n  \"eqnull\": true,\n  \"node\": true\n}"]],"start1":0,"start2":0,"length1":0,"length2":190}]],"length":190}

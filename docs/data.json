@@ -1,0 +1,209 @@
+{
+    "project": {
+        "name": "Eschool Portal",
+        "description": "Core Component for the Eschool system",
+        "version": "0.0.1",
+        "url": ""
+    },
+    "files": {
+        "controllers/admin.js": {
+            "name": "controllers/admin.js",
+            "modules": {
+                "Router": 1
+            },
+            "classes": {
+                "Admin": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "controllers/cor.js": {
+            "name": "controllers/cor.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/authentication/authentication.js": {
+            "name": "lib/authentication/authentication.js",
+            "modules": {
+                "Authentication": 1
+            },
+            "classes": {
+                "Authentication": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data/db.js": {
+            "name": "lib/data/db.js",
+            "modules": {
+                "Library": 1
+            },
+            "classes": {
+                "Db": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Router": {
+            "name": "Router",
+            "submodules": {},
+            "classes": {
+                "Admin": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "controllers/admin.js",
+            "line": 5
+        },
+        "Authentication": {
+            "name": "Authentication",
+            "submodules": {},
+            "classes": {
+                "Authentication": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/authentication/authentication.js",
+            "line": 5
+        },
+        "Library": {
+            "name": "Library",
+            "submodules": {},
+            "classes": {
+                "Db": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/data/db.js",
+            "line": 65
+        }
+    },
+    "classes": {
+        "Admin": {
+            "name": "Admin",
+            "shortname": "Admin",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Router",
+            "namespace": "",
+            "file": "controllers/admin.js",
+            "line": 5,
+            "description": "represents all functions on the admin dashboard and routes - more than just this, but conceptually a start"
+        },
+        "Authentication": {
+            "name": "Authentication",
+            "shortname": "Authentication",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Authentication",
+            "namespace": "",
+            "file": "lib/authentication/authentication.js",
+            "line": 5
+        },
+        "Db": {
+            "name": "Db",
+            "shortname": "Db",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Library",
+            "namespace": "",
+            "file": "lib/data/db.js",
+            "line": 65,
+            "description": "core database class exposing Mongoose object after making connection"
+        }
+    },
+    "classitems": [
+        {
+            "file": "controllers/admin.js",
+            "line": 12,
+            "description": "Takes expressjs app and uses it to determine which controller to call to handle",
+            "itemtype": "method",
+            "name": "route",
+            "params": [
+                {
+                    "name": "app",
+                    "description": "The express application object.",
+                    "type": "App"
+                }
+            ],
+            "class": "Admin",
+            "module": "Router"
+        },
+        {
+            "file": "controllers/cor.js",
+            "line": 3,
+            "description": "Add necessary headers to enable request from domain",
+            "itemtype": "method",
+            "name": "process",
+            "params": [
+                {
+                    "name": "reg",
+                    "description": "the request object",
+                    "type": "Request"
+                },
+                {
+                    "name": "res",
+                    "description": "the response object\n\nActs on 'options' request",
+                    "type": "Response"
+                }
+            ],
+            "class": "Authentication",
+            "module": "Router"
+        },
+        {
+            "file": "lib/authentication/authentication.js",
+            "line": 9,
+            "description": "Authenticates call",
+            "itemtype": "method",
+            "name": "authenticate",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The express request object.",
+                    "type": "Request"
+                },
+                {
+                    "name": "res",
+                    "description": "The express response object.",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "The express next object.",
+                    "type": "Function"
+                }
+            ],
+            "class": "Authentication",
+            "module": "Authentication"
+        },
+        {
+            "file": "lib/data/db.js",
+            "line": 94,
+            "description": "dragintcore-test-db | { _id: ObjectId(\"51c8a1d73111c7409510fc7f\"), user: \"draguser\", pwd: \"10c4577030475b1ae417d28bdd22b7fa\", readOnly: false }\ndragintweb-test-db | { _id: ObjectId(\"51c8a20d9232add66627da6c\"), user: \"draguser\", pwd: \"10c4577030475b1ae417d28bdd22b7fa\", readOnly: false }",
+            "class": "Db",
+            "module": "Library"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\ndragintcore-test-db | { _id: ObjectId(\"51c8a1d73111c7409510fc7f\"), user: \"draguser\", pwd: \"10c4577030475b1ae417d28bdd22b7fa\", readOnly: false }\ndragintweb-test-db | { _id: ObjectId(\"51c8a20d9232add66627da6c\"), user: \"draguser\", pwd: \"10c4577030475b1ae417d28bdd22b7fa\", readOnly: false }",
+            "line": " lib/data/db.js:94"
+        }
+    ]
+}

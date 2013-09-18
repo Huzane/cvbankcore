@@ -1,0 +1,52 @@
+{
+  "name": "Eschool Portal",
+  "description": "Core Component for the Eschool system",
+  "version": "0.0.1",
+  "author": {
+    "name": "David",
+    "email": "daseronle@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Daser Solomon",
+      "email": "songofsongs@gmail.com"
+    },
+    {
+      "name": "Daser David",
+      "email": "daseronline@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "async": "x.x.x",
+    "jade": "x.x.x",
+    "easy-pbkdf2": "x.x.x",
+    "underscore": "x.x.x",
+    "express": "3.2.x",
+    "grunt": "0.4.x",
+    "sinon": "1.7.x",
+    "passport": "0.1.x",
+    "less-middleware": "*",
+    "connect-flash": "*",
+    "nodemailer": "*",
+    "restler": "~2.0.1",
+    "validator": "~1.5.0"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-shell": "~0.3.0",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-yuidoc": "~0.4.0",
+    "grunt-contrib-less": "~0.6.1",
+    "grunt-aws": "0.0.4"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:daser/cvbank.git"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
+}
