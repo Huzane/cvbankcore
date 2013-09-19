@@ -27,3 +27,4 @@ accountType: {type: String}
 
 accountSchema.index({identity : 1});
 
+module.exports.AccountModel = db.model("Account", accountSchema);

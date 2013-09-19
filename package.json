@@ -1,5 +1,5 @@
 {
-  "name": "Eschool Portal",
+  "name": "cvbankcore",
   "description": "Core Component for the Eschool system",
   "version": "0.0.1",
   "author": {
@@ -43,7 +43,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com:daser/cvbank.git"
+    "url": "https://github.com:daser/cvbankcore.git"
   },
   "engines": {
     "node": "0.8.x",
