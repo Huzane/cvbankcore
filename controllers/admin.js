@@ -22,7 +22,7 @@ function route(app) {
  
     // get financial data
     app.get('/admin/test', authentication.authenticate, function (req, res, next) {
-        return "Hello World";
+        res.send("Hello World");
     });
  
     // get financial data - top delinquents
