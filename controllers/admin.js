@@ -21,7 +21,9 @@ function route(app) {
     var authentication = require('../lib/authentication/authentication');
  
     // get financial data
-    app.get('/admin/financials/summary', authentication.authenticate, function (req, res, next) {});
+    app.get('/admin/test', authentication.authenticate, function (req, res, next) {
+        return "Hello World";
+    });
  
     // get financial data - top delinquents
     app.get('/admin/financials/delinquents', authentication.authenticate, function (req, res, next) {});
