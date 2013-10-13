@@ -12,7 +12,7 @@ function route(app)
     //var campaignRouter = require('./campaign');
     //var candidateRouter = require('./candidate');
     //var companyRouter = require('./company');
-    //var resellerRouter = require('./reseller');
+    var school = require('./school');
     
     // some test routes come first to make sure that we are able to test routing without 
     // getting obscured by errors that might happen down the line
@@ -26,7 +26,7 @@ function route(app)
     //accountRouter.route(app);
     adminRouter.route(app);
     accountRouter.route(app);
-    //assessmentRouter.route(app);
+    school.route(app);
     //assessorRouter.route(app);
     //campaignRouter.route(app);
     //candidateRouter.route(app);

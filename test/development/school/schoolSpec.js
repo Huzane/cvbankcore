@@ -85,7 +85,7 @@ describe('School model', function() {
 		
 		it('can create account', function(){
 		   runs(function(){
-		       var status = 'activation';
+		       var status = 'locked';
 		        var acct = new AS();
                 acct.create({identity: email, status:status , accountType: 'school' }, function(c) {
 					activationObject = c;
