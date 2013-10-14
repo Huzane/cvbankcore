@@ -1,8 +1,11 @@
 function route(app) {
 
+    app.get('/school/login', function(req, res) {
+	    console.log('hi');
+	}); 
     // authentication
     var authentication = require('../lib/authentication/authentication');
-    app.post('/accounts/login', authentication.authenticate, function(req, res, next) {
+    app.post('/school/login', authentication.authenticate, function(req, res, next) {
         var auth = require("../lib/authentication/accountProfile.js");
         var dataSent = false;
         auth.once('complete', function(data) {
