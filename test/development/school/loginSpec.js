@@ -13,4 +13,5 @@ frisby.create('Ensure response has proper JSON types in specified keys')
       password: "bar",
     })
     .expectStatus(200)
+    .expectBodyContains('yeso')
 .toss();

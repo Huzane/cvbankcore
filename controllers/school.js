@@ -7,8 +7,8 @@ function route(app) {
     var authentication = require('../lib/authentication/authentication');
     //app.post('/school/login', authentication.authenticate, function(req, res, next) {
     app.post('/school/login', function(req, res, next) {
-        res.send("yeso");
-//        var auth = require("../lib/authentication/accountProfile.js");
+        //res.send("yeso");
+        var auth = require("../lib/authentication/accountProfile.js");
 //        var dataSent = false;
 //        auth.once('complete', function(data) {
 //            if (dataSent) {
@@ -18,6 +18,7 @@ function route(app) {
 //            res.json(data);
 //        });
 //        auth.bootStrap(req.body.identity, req.body.password);
+        res.send("yeso");
     });
 
 }
