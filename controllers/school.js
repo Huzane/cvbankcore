@@ -18,7 +18,7 @@ function route(app) {
 //            res.json(data);
 //        });
         auth.bootStrap(req.body.identity, req.body.password);
-        res.send("yeso");
+      //  res.send("yeso");
     });
 
 }
