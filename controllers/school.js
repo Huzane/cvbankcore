@@ -1,7 +1,7 @@
 function route(app) {
 
     app.get('/school/login', function(req, res) {
-	    console.log('hi');
+	     res.send('we are okay');
 	}); 
     // authentication
     var authentication = require('../lib/authentication/authentication');

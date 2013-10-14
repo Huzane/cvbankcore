@@ -1,5 +1,5 @@
 var frisby = require('frisby');
-var URL = 'http://cvbankcore.pawn.c9.io';
+var URL = 'http://cvbankcore.herokuapp.com';
 
 
 
