@@ -9,9 +9,14 @@ frisby.create('Ensure response has proper JSON types in specified keys')
 //    .expectStatus(200)
     
 .post(URL + '/school/login', {
-      identity: "daser",
-      password: "bar",
+      identity: "badghget@gmail.com",
+      password: "MZ1U20Ou"
     })
     .expectStatus(200)
-    //.expectBodyContains('yeso')
+ //   .expectBodyContains('yeso')
+//   .expectJSONTypes({
+//      status: String,
+//      message: String
+//    })
+     .inspectJSON()
 .toss();

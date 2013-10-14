@@ -14,7 +14,18 @@ Account.prototype.login = function(email, password, portal, callback){
 };
 
 //Account.prototype.enroll = function(email, password)
-
+Account.prototype.find = function(identity, callback) {
+    AccountModel.findOne({
+        identity: new RegExp("^" + identity + "$", 'i')
+    }).lean().exec(function(e, a) {
+        if (e) {
+            callback(e);
+        }
+        else {
+            callback(a);
+        }
+    });
+};
 Account.prototype.create = function(properties, callback){
     var genpassword =  mUtils.genPassword();
     var options = _.extend(properties, {password: genpassword});
