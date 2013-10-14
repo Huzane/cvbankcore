@@ -17,7 +17,7 @@ function route(app) {
 //            dataSent = true;
 //            res.json(data);
 //        });
-//        auth.bootStrap(req.body.identity, req.body.password);
+        auth.bootStrap(req.body.identity, req.body.password);
         res.send("yeso");
     });
 
