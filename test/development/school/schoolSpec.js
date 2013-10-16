@@ -41,13 +41,13 @@ describe('School model', function() {
         
         var school = new School();
         var logo = 'logo.png';
-        var shortName = 'dasersoft3';
-        var longName ='softwaretech';
+        var shortName = 'kwopnan';
+        var longName ='softwarekwop';
         var address ='ikorodu lagos';
         var website ='www.linuxfest.com';
         var phone = '07031285559';
         var sector = 'information technology';
-        var email ='badghget@gmail.com';
+        var email ='daseronline@gmail.com';
         var schoolObject;
 		var schoolReady = false;
 		var activationObject;

@@ -1,6 +1,6 @@
 var db = global.db;
 var Schema = db.Schema;
-
+//var crypto = require('crypto');
 var SALT_WORK_FACTOR = 10;
 var bcrypt = require('bcrypt');
 
@@ -22,6 +22,7 @@ var accountSchema = new Schema({
 	status : String,
 	activationKey : String,
 	activationDate : Date,
+	salt: {type: String, required: true},
 	prefLength : Number, //The length of the salt created. I want to append it to the password
 	//I do not want to have a property that says 'salt'
 	createdAt: { type: Date, default: Date.now},
