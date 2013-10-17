@@ -47,7 +47,6 @@ Account.prototype.comparePassword = function(account, password, callback) {
 
 
 Account.prototype.create = function(properties, callback){
-    
     var genpassword =  mUtils.genPassword();
     var cypher = require("../lib/encryption");
     var salt = cypher.genSalt();

@@ -7,21 +7,19 @@ var SchoolModel = require('./school-db.js').SchoolModel;
  */
 
 var SchoolUserSchema = new Schema({
-    accountId : {type: Schema.ObjectId}, //added by Daser
-    phone:{type:String}, //added by Daser
-    address:{type:String}, //added by Daser
-    identity : {type:String, required : true, unique : true},
-    firstName: String, //added by Daser
-    lastName:String, //added by Daser
+    accountId : {type: Schema.ObjectId}, 
+    phone:{type:String}, 
+    address:{type:String}, 
+    firstName: String, 
+    lastName:String,
 	picture : String,
 	gender : String,
     schoolId : {type:Schema.Types.ObjectId, ref : SchoolModel.modelName},
     userType : {type: String, default: 'schooluser'}, 
     regOn: {type: Date, default: Date.now},
-	status : {type : String, default : ''}
     });
 
-SchoolUserSchema.index({identity : 1, schoolId : 1}); 
+SchoolUserSchema.index({accountId : 1, schoolId : 1}); 
 
 var Model = db.model("SchoolUser",SchoolUserSchema);
 module.exports.SchoolUserModel = Model;
