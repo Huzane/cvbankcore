@@ -52,7 +52,7 @@ Account.prototype.create = function(properties, callback){
     var salt = cypher.genSalt();
     var hash = cypher.hash(genpassword, salt);
 //    var pass = this.setPassword(genpassword);
-    console.log(genpassword);
+//    console.log(genpassword);
     var options = _.extend(properties, {password: hash, salt: salt});
     var account = AccountModel(options);
 	       account.save(function(err, account){
