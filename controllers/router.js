@@ -7,7 +7,7 @@ function route(app)
     //var accountRouter = require('./account');
     var adminRouter = require('./admin');
     var accountRouter = require('./account');
-    //var assessmentRouter = require('./assessment');
+    var staffRouter = require('./staff');
     //var assessorRouter = require('./assessor');
     //var campaignRouter = require('./campaign');
     //var candidateRouter = require('./candidate');
@@ -27,7 +27,7 @@ function route(app)
     adminRouter.route(app);
     accountRouter.route(app);
     school.route(app);
-    //assessorRouter.route(app);
+    staffRouter.route(app);
     //campaignRouter.route(app);
     //candidateRouter.route(app);
     //companyRouter.route(app);
