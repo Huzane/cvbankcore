@@ -5,7 +5,6 @@ function route(app) {
 	}); 
     // authentication
 
-
 }
 
 module.exports.route = route;

@@ -1,9 +1,48 @@
+var util = require("util");
+
+var mongoose = require("mongoose");
+
+function toObjectId(id) {
+	return mongoose.Types.ObjectId(id);
+}
+
 function route(app) {
     var authentication = require('../lib/authentication/authentication');
 
     app.get('/school/login', function(req, res) {
 	     res.send('we are okay');
 	}); 
+
+
+
+    app.get('/staff', authentication.authenticate, function (req, res, next) {
+        var Staff = require("../../models/staff.js").Staff;
+        var c = new Staff();
+		c.find(req.query, function(data) {
+			if (util.isError(data)) {
+				res.json(500, data.message);
+			} else {
+				res.json(data);
+			}
+		});
+	});
+
+
+	app.get('/staff/:id', authentication.authenticate, function (req, res, next) {
+	    var Staff = require("../../models/staff.js").Staff;
+		console.log(req.params);
+		var id = req.params.id;
+		id = toObjectId(id);
+		var c = new Staff();
+		c.get(id, req.query, function(data) {
+			if (util.isError(data)) {
+				res.send(500, data.message);
+			} else {
+				res.json(data);
+			}
+		});
+	});
+
 
       app.post('/staff/create', authentication.authenticate, function(req, res, next) {
         var Staff = require("../lib/staff/newAccount.js");
