@@ -42,7 +42,8 @@ describe('Company model', function() {
         
         var staff = new Staff();
 		var staffReady = true;
-        var _id = toObjectId('5289d195d10dd70200000002');
+ //       var _id = toObjectId('5289d195d10dd70200000002');
+        var _id = toObjectId('528f0136ca9e300200000001');
         //var _id = toObjectId('526be2621ac24a020000000f');
 		it ('can get', function() {
 			waitsFor(function() {
