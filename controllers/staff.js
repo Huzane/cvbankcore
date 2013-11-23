@@ -30,7 +30,8 @@ function route(app) {
 
 	app.get('/staff/:id', authentication.authenticate, function (req, res, next) {
 	    var Staff = require("../models/staff.js").Staff;
-		console.log("Monsius Error" + req.params);
+	    JSON.stringify(req.params);
+		console.log("Monsius Error" + req.params.id + "Crazy things");
 		var id = req.params.id;
 		id = toObjectId(id);
 		var c = new Staff();
