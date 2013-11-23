@@ -35,10 +35,14 @@ function route(app) {
 		var id = req.params.id;
 		id = toObjectId(id);
 		var c = new Staff();
-		c.get(id, req.query, function(data) {
+		c.get(id,function(data) {
 			if (util.isError(data)) {
+			    console.log("failure");
+			    JSON.stringify(data);
 				res.send(500, data.message);
 			} else {
+			    console.log("success");
+			    JSON.stringify(data);
 				res.json(data);
 			}
 		});
