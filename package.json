@@ -29,7 +29,8 @@
     "connect-flash": "*",
     "nodemailer": "*",
     "restler": "~2.0.1",
-    "validator": "~1.5.0"
+    "validator": "~1.5.0",
+    "frisby": "*"
   },
   "devDependencies": {
     "grunt": "*",
