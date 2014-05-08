@@ -7,7 +7,7 @@ function route(app) {
         res.send("Hello World");
     });
     
-    var authentication = require('../lib/authentication/authentication');
+    //var authentication = require('../lib/authentication/authentication');
     app.post('/account/login', authentication.authenticate, function(req, res, next) {
         var profile = require("../lib/authentication/accountProfile.js");
         var dataSent = false;

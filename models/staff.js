@@ -54,7 +54,7 @@ function Staff(){
     };
     
     Staff.prototype.create = function(options, callback){
-        var staffData = StaffModel(options);
+        var staffData = new StaffModel(options);
         staffData.save(function(err, data){
             if(err) {
                 callback(err);

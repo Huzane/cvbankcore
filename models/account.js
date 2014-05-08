@@ -54,14 +54,14 @@ Account.prototype.create = function(properties, callback){
 //    var pass = this.setPassword(genpassword);
     console.log(genpassword);
     var options = _.extend(properties, {password: hash, salt: salt});
-    var account = AccountModel(options);
-	       account.save(function(err, account){
-	          if(err) {
-	              callback(err);
-	          }else{
-	              callback(account !== null ? account.toJSON() : null);  
-	          }
-	    });
+    var account = new AccountModel(options);
+	account.save(function(err, account){
+	if(err) {
+	callback(err);
+	}else{
+	callback(account !== null ? account.toJSON() : null);  
+	}
+	});
 };
 
 

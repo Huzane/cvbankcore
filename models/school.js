@@ -22,20 +22,19 @@ function School(){
 		return;
 	}  
 	
-	SchoolModel.findOne({shortName: new RegExp('^' + properties.shortName + '$', 'i')}, '_id', function(err, d){
-	   if(d){
-	       callback(util.format('A school named \'%s\' already exists', properties.shortName));
-	   } else {
-	       var school = SchoolModel(properties);
-	       school.save(function(err, school){
-	          if(err) {
-	              callback(err);
-	          }else{
-	              callback(school !== null ? school.toJSON() : null);  
-	          }
-	       });
-	       
-	   }
+SchoolModel.findOne({shortName: new RegExp('^' + properties.shortName + '$', 'i')}, '_id', function(err, d){
+	if(d){
+	callback(util.format('A school named \'%s\' already exists', properties.shortName));
+	} else {
+	var school = new SchoolModel(properties);
+	school.save(function(err, school){
+	if(err) {
+	callback(err);
+	}else{
+	callback(school !== null ? school.toJSON() : null);  
+	}
+	});
+	}
 	});
 	
 	

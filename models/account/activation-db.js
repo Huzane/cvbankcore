@@ -4,7 +4,7 @@ var Schema = db.Schema;
 var SALT_WORK_FACTOR = 10;
 var bcrypt = require('bcrypt');
   
-var activationSchema = Schema({
+var activationSchema = new Schema({
   email: { type: String, required: true, unique: true},
   hashedEmail: { type: String, required: true, unique: true },
   verifyStatus: Boolean, // Used to check status
@@ -12,7 +12,7 @@ var activationSchema = Schema({
 });
 
 activationSchema.pre('save', function(next) {
-  var _status = this;
+    var _status = this;
 
   bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
     if(err) return next(err);

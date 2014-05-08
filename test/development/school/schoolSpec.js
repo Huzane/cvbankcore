@@ -83,25 +83,25 @@ describe('School model', function() {
 			});
 		});
 		
-		it('can create account', function(){
-		   runs(function(){
-		       var status = 'locked';
-		        var acct = new AS();
+	it('can create account', function(){
+    runs(function(){
+		var status = 'locked';
+		var acct = new AS();
                 acct.create({identity: email, status:status , accountType: 'school' }, function(c) {
 					activationObject = c;
 					activationReady = true;
 					AScompleted = true;
 				});
-		   }) ;
-			waitsFor(function() {
+		}) ;
+    waitsFor(function() {
 				return AScompleted;
 			}, 'Waiting for activation create timedout', 5000);
 			
 			
-			runs(function() {
-				expect(activationObject).toBeDefined();
-				expect(activationObject._id).toBeDefined();
-				console.log('Activation created');
+	runs(function() {
+	expect(activationObject).toBeDefined();
+	expect(activationObject._id).toBeDefined();
+	console.log('Activation created');
 				console.log(activationObject);
 			});
 

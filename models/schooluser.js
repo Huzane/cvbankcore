@@ -21,7 +21,7 @@ function SchoolUser(){
     };
     
     SchoolUser.prototype.create = function(options, callback){
-        var userData = SchoolUserModel(options);
+        var userData = new SchoolUserModel(options);
         userData.save(function(err, data){
             if(err) {
                 callback(err);

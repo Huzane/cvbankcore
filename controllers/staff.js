@@ -10,7 +10,7 @@ function route(app) {
     var authentication = require('../lib/authentication/authentication');
 
     app.get('/school/login', function(req, res) {
-	     res.send('we are okay');
+	res.send('we are okay');
 	}); 
 
 
@@ -29,7 +29,7 @@ function route(app) {
 
 
 	app.get('/staff/:id', authentication.authenticate, function (req, res, next) {
-	    var Staff = require("../models/staff.js").Staff;
+	var Staff = require("../models/staff.js").Staff;
 		var id = req.params.id;
 		id = toObjectId(id);
 		var c = new Staff();

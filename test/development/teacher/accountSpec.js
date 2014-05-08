@@ -27,7 +27,7 @@ describe("Profile Load Tests", function(){
         var address ='Police training Jos';
         var phone ='07031285559';
         var email ='das@gmail.com';
-        var schoolID = "525fbbf09a7409fd5f000001";
+        var schoolID = "536a5c327418ba0000000001";
 
         var options = {
             firstName : firstName,

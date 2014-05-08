@@ -18,7 +18,7 @@ describe('Company model', function() {
 	
 
     function toObjectId(id) {
-	    return mongoose.Types.ObjectId(id);
+	return mongoose.Types.ObjectId(id);
     }
 
     
